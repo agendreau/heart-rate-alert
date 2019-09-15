@@ -36,10 +36,10 @@ gatorParticle.begin()
 let strip = neopixel.create(DigitalPin.P12, 5, NeoPixelMode.RGB)
 basic.forever(function () {
     strip.showColor(neopixel.colors(NeoPixelColors.Purple))
-    basic.pause(gatorParticle.heartbeat(HeartbeatType.BPM))
+    basic.pause(500 - gatorParticle.heartbeat(HeartbeatType.BPM))
     strip.clear()
     strip.show()
-    basic.pause(gatorParticle.heartbeat(HeartbeatType.BPM))
+    basic.pause(500 - gatorParticle.heartbeat(HeartbeatType.BPM))
 })
 
 ```
