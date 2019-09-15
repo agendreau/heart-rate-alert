@@ -6,7 +6,7 @@ Now you will create a system to monitor your heart rate. You can use ``||music: 
 ```blocks
 input.onButtonPressed(Button.A, function () {
     for (let i = 0; i < 10; i++) {
-        bpm = gatorParticle.heartbeat(HeartbeatType.AVG)
+        bpm = gatorParticle.heartbeat(HeartbeatType.BPM)
         basic.showNumber(bpm)
         if (bpm < 70) {
             music.playTone(262, music.beat(BeatFraction.Whole))
@@ -34,13 +34,6 @@ input.onButtonPressed(Button.A, function () {
 let bpm = 0
 gatorParticle.begin()
 let strip = neopixel.create(DigitalPin.P12, 5, NeoPixelMode.RGB)
-basic.forever(function () {
-    strip.showColor(neopixel.colors(NeoPixelColors.Purple))
-    basic.pause(500 - gatorParticle.heartbeat(HeartbeatType.BPM))
-    strip.clear()
-    strip.show()
-    basic.pause(500 - gatorParticle.heartbeat(HeartbeatType.BPM))
-})
 
 ```
 
